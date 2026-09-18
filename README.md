@@ -1,4 +1,4 @@
-# NLP Intake Playbook — PAL for {{COMPANY_NAME}} Video Studio
+# NLP Intake Playbook — PAL for Enterprise Platform Video Studio
 
 **Category:** 99-uncategorized
 **Source:** nlp-intake.md
@@ -17,7 +17,7 @@ This repository contains a generalized AI agent skill ready for use with Claude 
 
 2. Import the skill into your agent framework:
    ```bash
-   # For Claude Code
+   # for AI Agents (Claude Code, Cursor, Copilot, Cline, Windsurf, Hermes)
    @skill SKILL.md
    
    # For Hermes Agent
