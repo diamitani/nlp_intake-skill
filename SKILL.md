@@ -1,4 +1,10 @@
-# NLP Intake Playbook — PAL for {{COMPANY_NAME}} Video Studio
+---
+name: nlp-intake
+description: >
+  This file is loaded by the skill whenever a user submits a casual video prompt. It is the "compiler" between natural language and the JSON brief that drives rendering. Follow these steps every time, silently, then show the user the compiled brief before rendering. Use this skill when working with nlp intake tasks or workflows.
+---
+
+# NLP Intake Playbook — PAL for Enterprise Platform Video Studio
 
 This file is loaded by the skill whenever a user submits a casual video prompt.
 It is the "compiler" between natural language and the JSON brief that drives
@@ -11,7 +17,7 @@ compiled brief before rendering.
 
 **Pass 1 — Normalize.**
 Lowercase, strip punctuation spam, preserve numbers and proper nouns (country
-names, competitor names, {{COMPANY_NAME}} product terms).
+names, competitor names, Enterprise Platform product terms).
 
 **Pass 2 — Detect the archetype.**
 Match on the strongest signal (in this priority order):
@@ -29,7 +35,7 @@ Match on the strongest signal (in this priority order):
 |---|---|---|
 | duration_s | "\\d+\\s?(s|sec|second)" | archetype default |
 | aspect | "linkedin"→1:1, "tiktok/ig story"→9:16, "youtube/website"→16:9 | archetype default |
-| country | proper noun matching {{COMPANY_NAME}} supported-country list | — |
+| country | proper noun matching Enterprise Platform supported-country list | — |
 | accent | "blue/purple/magenta/coral" or design-system default | blue |
 | CTA | "book a demo", "talk to us", "learn more", "visit [url]" | design-system default |
 | voiceover persona | "exec" / "ceo"→exec; "rep" / "sales"→upbeat-rep; "warm" / "brand"→warm-brand; "narrator"→neutral-narrator | warm-brand |
@@ -65,7 +71,7 @@ I'm building:
   • Voiceover: <yes/no> · persona: <persona>
   • Hook: "<headline>"
   • CTA: "<cta>" → <cta_url>
-  • Brand lock: {{COMPANY_NAME}} <accent> + <dark/light>, Gelion font, primary logo
+  • Brand lock: Enterprise Platform <accent> + <dark/light>, Gelion font, primary logo
   • Output: <preview | MP4 | both>
 
 Say 'go' to build, or tell me what to change.
@@ -77,11 +83,11 @@ Say 'go' to build, or tell me what to change.
 
 - **Too vague** ("make a cool video"): ask one focused question — destination
   (LinkedIn/email/internal) — and infer the rest from the design system default.
-- **Missing CTA**: pull from `~/{{COMPANY_NAME}}-video-studio/.design-system.json`.
+- **Missing CTA**: pull from `~/Enterprise Platform-video-studio/.design-system.json`.
   If no design system yet, ask during the brand-system template flow.
 - **Over-long script**: hard trim to `word_budget` and tell the user which
   sentences got cut and why.
-- **Off-brand color request** ("make it green"): refuse politely — "{{COMPANY_NAME}}
+- **Off-brand color request** ("make it green"): refuse politely — "Enterprise Platform
   palette is blue / purple / magenta / coral only. Want me to go with
   [nearest accent]?"
 - **User provides JSON directly**: skip the compile, validate against schema,
